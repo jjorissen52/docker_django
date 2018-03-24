@@ -1,0 +1,15 @@
+version: '3'
+services:
+  caddy:
+    image: marcbachmann/caddy:0.10.7-arm7-semi
+    container_name: caddy-arm
+    volumes:
+      - ./config:/config
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - WORKER=192.168.50.11
+    command: -conf /config/Caddyfile
+      
+      
