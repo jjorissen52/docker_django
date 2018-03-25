@@ -4,7 +4,8 @@ services:
   db:
     restart: always
     image: postgres:9.6
+    container_name: pg01
     volumes:
-      - "./db_data:/var/lib/postgresql/data"
+      - "$HOME/db_data:/var/lib/postgresql/data" # puts a folder called db_data on your filesystem for persistent storage
     ports:
       - "5432:5432"
