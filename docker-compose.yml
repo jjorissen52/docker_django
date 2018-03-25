@@ -12,3 +12,13 @@ services:
       - .:/src
     ports:
       - "8000:8000"
+    depends_on:
+      - db
+  db:
+    restart: always
+    image: postgres:9.6
+    container_name: pg01
+    volumes:
+      - "$HOME/db_data:/var/lib/postgresql/data" # puts a folder called db_data on your filesystem for persistent storage
+    ports:
+      - "5432:5432"
